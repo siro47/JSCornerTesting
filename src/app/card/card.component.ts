@@ -34,7 +34,7 @@ interface CardInfo {
 export class CardComponent implements OnInit {
   @Input() data: CardInfo;
 
-  private cardStatus = 'main';
+  public cardStatus = 'main';
   private palette;
 
   constructor(
