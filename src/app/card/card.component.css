@@ -1,0 +1,16 @@
+.card-container {
+  width: 200px;
+  height: 200px;
+  border: solid grey 1px;
+  position: relative;
+  padding: 10px;
+  margin: 0 auto;
+  text-align: center;
+  cursor: pointer;
+  background-color: lightblue;
+}
+.footer {
+  position:absolute;
+  right: 10px;
+  bottom: 10px;
+}

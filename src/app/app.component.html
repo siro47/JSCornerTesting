@@ -1,3 +1,8 @@
 <h1>
   {{title}}
 </h1>
+
+<div class="video-container" *ngFor="let video of videos">
+  <card [data]="video"></card>
+</div>
+

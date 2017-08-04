@@ -1,0 +1,11 @@
+<div class="card-container" (click)="changeState()" [@flipState]="cardStatus"
+     [ngStyle]="{ 'background-color': getColor() }">
+  <div *ngIf="cardStatus === 'main'">
+    <h2>{{data?.title}}</h2>
+    <span class="footer">{{data?.footer}}</span>
+  </div>
+  <div *ngIf="cardStatus === 'details'">
+    {{ data?.extendedInfo}}
+  </div>
+</div>
+
