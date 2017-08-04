@@ -18,7 +18,12 @@ export class AppComponent {
 
   ngOnInit() {
     this.videos = this.youtubeService.getSolidgearVideos().map(function(item) {
-      return {title: item.title, extendedInfo: item.desc, footer: item.author}
+      return {title: item.title, extendedInfo: item.desc, footer: item.author, url: item.url}
     })
+  }
+
+  openRandomVideo() {
+    var randomVideo = this.videos[Math.floor(Math.random()*this.videos.length)];
+    window.open(randomVideo.url, "_blank");
   }
 }
