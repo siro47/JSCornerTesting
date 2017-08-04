@@ -8,7 +8,7 @@ import {YoutubeInfoService} from "./youtube-info.service";
 })
 export class AppComponent {
 
-  private title = 'JS CORNER APP'
+  private title = 'JS CORNER APP';
   private videos;
 
   constructor(

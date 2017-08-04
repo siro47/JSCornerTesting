@@ -6,6 +6,12 @@ import {CardComponent} from "./card/card.component";
 import {YoutubeInfoService} from "./youtube-info.service";
 import {ColorizerService} from "./colorizer.service";
 
+class MockYoutubeInfoService {
+  public getSolidgearVideos() {
+    return [{title: 'testtitle', author: 'testauthor', url: 'testurl', desc: 'testdesc'}];
+  }
+}
+
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -14,7 +20,7 @@ describe('AppComponent', () => {
         CardComponent
       ],
       providers: [
-        YoutubeInfoService,
+        {provide: YoutubeInfoService, useClass: MockYoutubeInfoService },
         ColorizerService
       ],
       imports: [
@@ -41,4 +47,13 @@ describe('AppComponent', () => {
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('h1').textContent).toContain('JS CORNER APP');
   }));
+
+  it ('click open random video launches the url', async(() => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const component = fixture.componentInstance;
+    fixture.detectChanges();
+    spyOn(window, 'open');
+    fixture.nativeElement.querySelector('#openVideoButton').click();
+    expect(window.open).toHaveBeenCalledWith('testurl', '_blank');
+  }))
 });
